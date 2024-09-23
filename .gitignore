@@ -27,3 +27,5 @@ client/*.sw?
 
 # server
 server/node_modules
+githubkey.pub
+githubkey
