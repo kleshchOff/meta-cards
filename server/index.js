@@ -1,8 +1,12 @@
 const express = require('express');
-const cardRoutes = require('./routes/cardRoutes');
+const cors = require('cors');
 
 const app = express();
 const port = 3000;
+
+app.use(cors());
+
+const cardRoutes = require('./routes/cardRoutes');
 
 app.use('/api', cardRoutes);
 
