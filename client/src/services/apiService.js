@@ -5,3 +5,11 @@ export async function fetchRandomCard() {
   }
   return response.json();
 }
+
+export async function fetchAllCards() {
+    const response = await fetch('http://localhost:3000/api/cards');
+    if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    return response.json();
+}

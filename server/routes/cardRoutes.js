@@ -1,7 +1,8 @@
 const express = require('express');
 const router = express.Router();
-const { getRandomCard } = require('../controllers/cardController');
+const { getRandomCard, getAllCards } = require('../controllers/cardController');
 
 router.get('/random-card', getRandomCard);
+router.get('/cards', getAllCards); // <--- новый роут
 
 module.exports = router;

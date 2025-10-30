@@ -3,23 +3,21 @@
     <div class="bg"></div>
     <Header />
     <main class="main-content">
-      <CardDisplay />
+      <router-view /> <!-- автоматически рендерит актуальную страницу -->
     </main>
   </div>
 </template>
 
 <script>
 import Header from './components/Header.vue';
-import CardDisplay from './components/CardDisplay.vue';
 
 export default {
   name: 'App',
-  components: { Header, CardDisplay }
+  components: { Header }
 };
 </script>
 
 <style scoped>
-/* Сброс отступов, гарантируем отсутствие скролла */
 html, body, #app {
   margin: 0;
   padding: 0;
@@ -29,7 +27,6 @@ html, body, #app {
   font-family: 'Inter', Avenir, Helvetica, Arial, sans-serif;
 }
 
-/* Фоновая картинка — фиксированная, растягивается, не двигается со скроллом */
 .bg {
   position: fixed;
   inset: 0;
@@ -41,7 +38,6 @@ html, body, #app {
   pointer-events: none;
 }
 
-/* Полупрозрачный overlay для контраста */
 #app::after {
   content: "";
   position: fixed;
@@ -51,11 +47,10 @@ html, body, #app {
   z-index: 1;
 }
 
-/* Контент всегда по центру над фоном */
 .main-content {
   position: relative;
   z-index: 2;
-  padding-top: 56px; /* высота header, поменяйте если она у вас другая */
+  padding-top: 56px; /* высота header */
   min-height: calc(100vh - 56px);
   max-width: 100vw;
   display: flex;
@@ -70,5 +65,4 @@ html, body, #app {
     min-height: calc(100vh - 46px);
   }
 }
-
 </style>
