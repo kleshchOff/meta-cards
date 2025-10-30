@@ -11,29 +11,60 @@
 
 <script>
 export default {
-  // eslint-disable-next-line vue/multi-word-component-names
   name: 'Header'
 };
 </script>
 
 <style scoped>
 .app-header {
-  background-color: rgba(0, 0, 0, 0.7);
-  padding: 10px 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  min-height: 56px;
+  background: rgba(24, 26, 31, 0.89);
+  backdrop-filter: blur(8px);
+  z-index: 10;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
 }
 nav ul {
+  margin: 0;
+  padding: 0;
   display: flex;
   justify-content: center;
+  width: 100vw;
+  gap: 28px;
   list-style: none;
-  padding: 0;
 }
 nav a {
-  color: white;
+  color: #fff;
+  font-weight: 500;
+  font-size: 1.08rem;
   text-decoration: none;
-  padding: 0 15px;
-  transition: color 0.3s ease;
+  padding: 12px 21px;
+  border-radius: 8px;
+  transition: background 0.2s, color 0.2s;
 }
-nav a:hover {
-  color: #ff69b4;
+nav a:hover,
+.router-link-exact-active {
+  background: linear-gradient(90deg, #ff69b4, #ff1493);
+  color: #fff;
+  font-weight: 600;
+}
+
+@media (max-width: 600px) {
+  .app-header {
+    min-height: 46px;
+  }
+  nav ul {
+    gap: 12px;
+  }
+  nav a {
+    font-size: 1rem;
+    padding: 8px 10px;
+  }
 }
 </style>
